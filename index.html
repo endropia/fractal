@@ -1,43 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandelbrot Fractal Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form_container">
+      <h2>Генератор множества мондельброта</h2>
 
-</head>
-<body>
-  <div class="form_container">
-    <form id="fractalForm">
-      <label for="realStart">Real Start:</label>
-      <input type="number" id="realStart" step="any" value="-2">
+      <form id="fractalForm">
+        <div class="real">
+          <h5>Границы действительной части (ось X)</h5>
+          <label for="realStart">Начало</label>
+          <input type="number" id="realStart" step="any" value="-2" />
 
-      <label for="realEnd">Real End:</label>
-      <input type="number" id="realEnd" step="any" value="2">
+          <label for="realEnd">Конец</label>
+          <input type="number" id="realEnd" step="any" value="2" />
+        </div>
+        <div class="img">
+          <h5>Границы мнимой части (ось Y)</h5>
 
-      <label for="imagStart">Imaginary Start:</label>
-      <input type="number" id="imagStart" step="any" value="-2">
+          <label for="imagStart">Начало</label>
+          <input type="number" id="imagStart" step="any" value="-2" />
 
-      <label for="imagEnd">Imaginary End:</label>
-      <input type="number" id="imagEnd" step="any" value="2">
+          <label for="imagEnd">Конец</label>
+          <input type="number" id="imagEnd" step="any" value="2" />
+        </div>
 
-      <label for="maxIter">Max Iterations:</label>
-      <input type="number" id="maxIter" value="100">
+        <h5><label for="maxIter">Количество итераций</label></h5>
 
-      <label for="centerColor">Center Color:</label>
-      <input type="color" id="centerColor" value="#ff0000">
+        <input type="number" id="maxIter" value="100" />
 
-      <button type="button" onclick="drawMandelbrot()">Draw Colorful Mandelbrot</button>
-      <button type="button" onclick="downloadImage()">Download Image</button>
-  </form>
-  </div>
-    
-  
+        <h5><label for="centerColor">Цвет центра</label></h5>
+
+        <input type="color" id="centerColor" value="#ff0000" />
+
+        <button type="button" onclick="drawMandelbrot()">
+          Сгенерировать фрактал
+        </button>
+        <button type="button" onclick="downloadImage()">
+          Скачать изображение
+        </button>
+      </form>
+    </div>
 
     <canvas id="mandelbrotCanvas" width="800" height="800"></canvas>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
